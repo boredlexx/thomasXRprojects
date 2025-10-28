@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
+using System.Data;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -41,7 +42,7 @@ public class DoorFeatures : CoreFeatures //need to inherit our CoreValues script
         //s = shorthand, slectenterevnts
         socketInteractor?.selectEntered.AddListener((s) => //abstracion - hiding complexity
         {
-            //OpenDoor();
+            OpenDoor();
             PlayOnStart();
         });
 
@@ -51,10 +52,13 @@ public class DoorFeatures : CoreFeatures //need to inherit our CoreValues script
             socketInteractor.socketActive = featureUsage == FeatureUsage.Once ? false : true; //reusability
             simpleInteractable?.selectEntered.AddListener((s) =>
             {
-                //OpenDoor();
+                OpenDoor();
             });
 
         });
+
+        //testing only - delete me
+        //OpenDoor();
     }
 
         //doors with simple interactirs may no require a akey. also good for cabinets and drawers
